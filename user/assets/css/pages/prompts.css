@@ -1,0 +1,287 @@
+/* =====================================================================
+   AI Builder (Prompts) Page
+   Loaded AFTER docs.css (via $extraCss) — reuses the docs design system
+   for hero stage, cards, terminals, pager and nav. Only ".pmt-*" helpers.
+   ===================================================================== */
+
+/* ---------- 3-step strip under hero ---------- */
+.pmt-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.pmt-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--surface-card);
+    border: 1px solid var(--color-hairline);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.08);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.pmt-step:hover {
+    transform: translateY(-3px);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 16px 34px -14px rgba(37, 99, 235, 0.35);
+}
+
+.pmt-step-num {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    box-shadow: 0 6px 14px -4px rgba(37, 99, 235, 0.55);
+}
+
+.pmt-step-body b {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-bottom: 3px;
+}
+
+.pmt-step-body p {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--color-ink-mute);
+}
+
+/* ---------- Prompt block header ---------- */
+.pmt-prompt-head {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 14px;
+}
+
+.pmt-prompt-ic {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pmt-ic-bg, rgba(37, 99, 235, 0.12));
+    color: var(--pmt-ic, #2563eb);
+    border: 1px solid var(--pmt-ic-bg, rgba(37, 99, 235, 0.12));
+}
+
+/* ---------- Callout notes ---------- */
+.pmt-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin: 14px 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--color-ink-secondary);
+}
+
+.pmt-note svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.pmt-note b {
+    display: block;
+    color: var(--color-ink);
+    font-weight: 700;
+    margin-bottom: 1px;
+}
+
+.pmt-note p {
+    margin: 0;
+}
+
+.pmt-note-info {
+    background: rgba(37, 99, 235, 0.07);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.pmt-note-info svg {
+    color: #2563eb;
+}
+
+.pmt-note-warn {
+    background: rgba(245, 158, 11, 0.09);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.pmt-note-warn svg {
+    color: #d97706;
+}
+
+/* ---------- Rules list ---------- */
+.pmt-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 8px 0 4px;
+}
+
+.pmt-rule {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--color-ink-secondary);
+}
+
+.pmt-rule svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.pmt-rule b {
+    color: var(--color-ink);
+}
+
+.pmt-rule code,
+.pmt-fact-v {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.pmt-rule code {
+    font-size: 11.5px;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: var(--surface-sunken);
+    border: 1px solid var(--color-hairline);
+    color: #2563eb;
+    white-space: nowrap;
+}
+
+/* ---------- Quick reference facts ---------- */
+.pmt-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.pmt-fact {
+    background: var(--surface-sunken);
+    border: 1px solid var(--color-hairline);
+    border-radius: 11px;
+    padding: 10px 13px;
+}
+
+.pmt-fact-k {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-mute);
+    margin-bottom: 4px;
+}
+
+.pmt-fact-v {
+    display: block;
+    font-size: 12.5px;
+    color: var(--color-ink);
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+/* ---------- Stack tag row ---------- */
+.pmt-uses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.pmt-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-ink-secondary);
+    background: var(--surface-sunken);
+    border: 1px solid var(--color-hairline);
+}
+
+.pmt-tag svg {
+    color: var(--color-ink-mute);
+}
+
+/* ---------- Prompt terminal tweak ---------- */
+.docs-terminal-body pre#pmt-html-pre,
+.docs-terminal-body pre#pmt-php-pre,
+.docs-terminal-body pre#pmt-node-pre,
+.docs-terminal-body pre#pmt-app-pre,
+.docs-terminal-body pre#pmt-telegram-pre {
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+/* ---------- Dark mode ---------- */
+html.dark-mode .pmt-step,
+body.dark-mode .pmt-step,
+[data-theme="dark"] .pmt-step {
+    background: var(--surface-card);
+    border-color: var(--color-hairline);
+}
+
+html.dark-mode .pmt-note-info,
+body.dark-mode .pmt-note-info,
+[data-theme="dark"] .pmt-note-info {
+    background: rgba(37, 99, 235, 0.14);
+    border-color: rgba(59, 130, 246, 0.35);
+}
+
+html.dark-mode .pmt-note-warn,
+body.dark-mode .pmt-note-warn,
+[data-theme="dark"] .pmt-note-warn {
+    background: rgba(245, 158, 11, 0.14);
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+html.dark-mode .pmt-rule code,
+body.dark-mode .pmt-rule code,
+[data-theme="dark"] .pmt-rule code {
+    color: #60a5fa;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .pmt-steps {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .pmt-step {
+        padding: 14px;
+    }
+    .pmt-facts {
+        grid-template-columns: 1fr;
+    }
+    .pmt-prompt-head {
+        gap: 10px;
+    }
+    .pmt-prompt-ic {
+        width: 38px;
+        height: 38px;
+    }
+}
