@@ -1,0 +1,97 @@
+/* =========================================================
+   Shared Infinite Scroll — Load More Bar
+   Reusable footer for paginated lists that lazily stream
+   additional rows as the admin scrolls.
+   ========================================================= */
+.load-more-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-hairline, rgba(226, 232, 240, 0.8));
+}
+
+.load-more-count {
+  font-size: 12.5px;
+  color: var(--color-ink-mute, #64748b);
+}
+
+.load-more-count strong {
+  color: var(--color-ink, #0f172a);
+  font-weight: 700;
+}
+
+.load-more-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.load-more-indicator {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--color-ink-mute, #64748b);
+}
+
+.load-more-spinner {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 99, 235, 0.25);
+  border-top-color: var(--color-primary, #2563eb);
+  animation: load-more-spin 0.7s linear infinite;
+}
+
+@keyframes load-more-spin {
+  to { transform: rotate(360deg); }
+}
+
+.load-more-error {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--color-danger, #e11d48);
+}
+
+.load-more-end {
+  display: none;
+  font-size: 12.5px;
+  color: var(--color-ink-mute, #64748b);
+}
+
+.load-more-bar.is-loading .load-more-indicator { display: inline-flex; }
+.load-more-bar.is-loading .load-more-btn { display: none; }
+
+.load-more-bar.has-error .load-more-error { display: inline-flex; }
+
+.load-more-bar.is-end .load-more-btn { display: none; }
+.load-more-bar.is-end .load-more-end { display: inline; }
+
+html.dark-mode .load-more-bar,
+[data-theme="dark"] .load-more-bar {
+  border-top-color: rgba(148, 163, 184, 0.18);
+}
+
+html.dark-mode .load-more-count strong,
+[data-theme="dark"] .load-more-count strong {
+  color: #f1f5f9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .load-more-spinner { animation: none; }
+}
+
+@media (max-width: 768px) {
+  .load-more-bar {
+    justify-content: center;
+    text-align: center;
+  }
+  .load-more-count {
+    flex: 1 1 100%;
+  }
+}

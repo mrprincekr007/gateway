@@ -1,0 +1,1332 @@
+/* =========================================================
+   FatherGateway — Premium Clean-White Checkout Stylesheet
+   Clean White Terminal Card with Rich Electric-Blue & Cyan Accents
+   Designed for PC (Dual-Column Terminal) & Mobile (Single-Column)
+   Strictly Zero Text Emojis — 100% Pure Vector SVG & Rich Colors
+   ========================================================= */
+
+:root {
+  --fg-brand-blue: #0066ff;
+  --fg-brand-cyan: #00c2ff;
+  --fg-brand-indigo: #4f46e5;
+  --fg-brand-purple: #7c3aed;
+  --fg-card-bg: #ffffff;
+  --fg-surface-subtle: #f8fafc;
+  --fg-border: #e2e8f0;
+  --fg-border-accent: rgba(0, 102, 255, 0.25);
+  --fg-ink-primary: #0f172a;
+  --fg-ink-secondary: #334155;
+  --fg-ink-muted: #64748b;
+  --fg-success: #10b981;
+  --fg-danger: #ef4444;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Eliminate mobile blue tap highlights, focus glow, and touch outlines on buttons */
+button, a, input, select, textarea, [role="button"], [data-copy],
+.pay-utr-toggle-btn, .pay-btn-download-center, .pay-btn-app-large, .pay-order-pill-wrap {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  outline: none !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+
+button:focus, button:active,
+a:focus, a:active,
+.pay-utr-toggle-btn:focus, .pay-utr-toggle-btn:active,
+.pay-btn-download-center:focus, .pay-btn-download-center:active,
+.pay-btn-app-large:focus, .pay-btn-app-large:active,
+.pay-order-pill-wrap:focus, .pay-order-pill-wrap:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Page Background: Custom background image with subtle cinematic blur */
+body.pay-page {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--fg-ink-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-color: #0b1120;
+}
+
+/* Atmospheric Blurred Background Image */
+body.pay-page::before {
+  content: '';
+  position: fixed;
+  top: -24px;
+  left: -24px;
+  right: -24px;
+  bottom: -24px;
+  background-image: 
+    linear-gradient(180deg, rgba(15, 23, 42, 0.38) 0%, rgba(15, 23, 42, 0.52) 100%),
+    url('../img/background.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: blur(8px) brightness(0.85);
+  transform: scale(1.05);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Master Shell Container */
+.pay-shell {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================
+   PC / DESKTOP LAYOUT (Dual-Column Clean White Terminal)
+   ========================================================= */
+@media (min-width: 769px) {
+  .pay-shell {
+    max-width: 950px;
+  }
+
+  .pay-card-terminal {
+    display: grid;
+    grid-template-columns: 1fr 1.08fr;
+    min-height: 520px;
+  }
+
+  .pay-col-left {
+    padding: 38px 36px 30px;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+  }
+
+  .pay-col-right {
+    padding: 38px 46px 32px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   PHONE / MOBILE LAYOUT (Clean Stacked White Card)
+   ========================================================= */
+@media (max-width: 768px) {
+  .pay-shell {
+    max-width: 440px;
+    padding: 0;
+  }
+
+  .pay-card-terminal {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pay-col-left {
+    padding: 22px 18px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #ffffff;
+  }
+
+  .pay-col-right {
+    padding: 20px 18px 22px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pay-hero-amount-box {
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+  }
+
+  .pay-amount-val {
+    font-size: 32px;
+  }
+}
+
+/* Master Clean White Card with Rich Shadow */
+.pay-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 30px 80px -15px rgba(0, 0, 0, 0.45),
+    0 15px 35px -5px rgba(0, 102, 255, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Brand Identity Header */
+.pay-brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.pay-brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 3D Brand Logo in Crisp White Elevated Tile */
+.pay-brand-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 3px;
+  box-shadow: 
+    0 8px 20px -3px rgba(0, 102, 255, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 102, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.pay-brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pay-brand-text {
+  line-height: 1.25;
+}
+
+/* Site Name in Bold Tech Typography */
+.pay-brand-name {
+  font-family: 'Sora', 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pay-brand-tagline {
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Verified Gateway Badge in Emerald Gradient */
+.pay-gateway-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #059669;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.12);
+  padding: 4px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* Order Details Row: Merchant on Left, Order ID on Right */
+.pay-order-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.pay-order-merchant-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pay-order-merchant-name strong {
+  color: #0f172a;
+}
+
+.pay-order-pill-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: #334155;
+  margin-bottom: 0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.pay-order-pill-wrap:hover {
+  background: #e2e8f0;
+  border-color: #0066ff;
+  color: #0066ff;
+}
+
+/* =========================================================
+   RICH COLOR HERO AMOUNT BOX
+   Vibrant Electric Blue & Cyan Gradient Box
+   ========================================================= */
+
+.pay-hero-amount-box {
+  background: linear-gradient(135deg, #0052cc 0%, #0066ff 50%, #00c2ff 100%);
+  border-radius: 18px;
+  padding: 20px 22px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 15px 35px -5px rgba(0, 102, 255, 0.45),
+    0 4px 12px rgba(0, 194, 255, 0.2);
+}
+
+.pay-hero-amount-box::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pay-amount-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.pay-amount-label-text {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+}
+
+.pay-amount-currency-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 2px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.pay-amount-val {
+  font-family: 'Sora', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.pay-amount-symbol {
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+}
+
+/* =========================================================
+   LIVE SENTINEL RADAR & EXPIRE TIMER
+   ========================================================= */
+
+.pay-sentinel-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 11.5px;
+  margin-bottom: 20px;
+}
+
+.pay-sentinel-radar {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #059669;
+  font-weight: 700;
+}
+
+.pulse-beacon {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseBeacon 1.8s infinite;
+}
+
+@keyframes pulseBeacon {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8); }
+  70% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.pay-timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+/* Clean Single-Line Micro-Trust Footnote */
+.pay-micro-trust {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.pay-micro-trust svg {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: flex !important;
+  }
+  .pay-micro-trust.mobile-only {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 14px;
+    padding-top: 0;
+  }
+}
+
+/* =========================================================
+   RIGHT COLUMN: DYNAMIC QR STAGE
+   Elevated Crisp White Stage with Electric Blue Scanner
+   ========================================================= */
+
+.pay-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.pay-qr-heading {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+/* Centered Download QR Pill Button directly under QR */
+.pay-btn-download-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 18px;
+  margin-top: 14px;
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.pay-btn-download-center:hover {
+  background: #f1f5f9;
+  border-color: #0066ff;
+  color: #0066ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 102, 255, 0.12);
+}
+
+/* Large Prominent Open UPI App Button below Download QR */
+.pay-btn-app-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 290px;
+  height: 44px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #0052cc 0%, #0066ff 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 
+    0 6px 18px rgba(0, 102, 255, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: all 0.15s ease;
+  border: none;
+  outline: none;
+}
+
+.pay-btn-app-large:hover {
+  background: linear-gradient(135deg, #003d99 0%, #0052cc 100%);
+  box-shadow: 
+    0 8px 24px rgba(0, 102, 255, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.pay-btn-app-large:active {
+  transform: translateY(0);
+}
+
+/* Elevated High-Contrast QR Code Stage */
+.pay-qr-stage-box {
+  position: relative;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 
+    0 14px 35px -5px rgba(0, 102, 255, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  overflow: hidden;
+}
+
+.pay-qr-stage-box svg {
+  display: block;
+  width: 215px;
+  height: 215px;
+  border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+  .pay-qr-stage-box svg {
+    width: 195px;
+    height: 195px;
+  }
+}
+
+/* Glowing Electric Blue Laser Scanner Line */
+.qr-scanner-line {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #0066ff 25%, 
+    #00c2ff 50%, 
+    #0066ff 75%, 
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 12px #00c2ff,
+    0 0 25px rgba(0, 102, 255, 0.8);
+  pointer-events: none;
+  z-index: 5;
+  animation: scanLaser 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes scanLaser {
+  0% { top: 16px; opacity: 0.3; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: calc(100% - 19px); opacity: 0.3; }
+}
+
+/* Precision Scanner Corner Viewfinders in Electric Blue */
+.qr-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: #0066ff;
+  border-style: solid;
+  pointer-events: none;
+}
+.qr-bracket-tl { top: 6px; left: 6px; border-width: 3.5px 0 0 3.5px; border-top-left-radius: 6px; }
+.qr-bracket-tr { top: 6px; right: 6px; border-width: 3.5px 3.5px 0 0; border-top-right-radius: 6px; }
+.qr-bracket-bl { bottom: 6px; left: 6px; border-width: 0 0 3.5px 3.5px; border-bottom-left-radius: 6px; }
+.qr-bracket-br { bottom: 6px; right: 6px; border-width: 0 3.5px 3.5px 0; border-bottom-right-radius: 6px; }
+
+/* Branded Multi-Color NPCI Supported Apps Ribbon */
+.pay-supported-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 13px;
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.pay-col-left .pay-supported-ribbon {
+  margin-top: 18px;
+  align-self: flex-start;
+  display: inline-flex;
+}
+
+.pay-app-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.pay-app-tag.gpay { color: #0066ff; }
+.pay-app-tag.phonepe { color: #7c3aed; }
+.pay-app-tag.paytm { color: #0284c7; }
+.pay-app-tag.bhim { color: #059669; }
+.pay-app-tag.cred { color: #d97706; }
+
+/* Instant Manual UTR Fallback Accordion */
+.pay-utr-accordion {
+  width: 100%;
+  max-width: 290px;
+  margin-top: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.pay-utr-toggle-btn {
+  width: 100%;
+  padding: 8px 14px;
+  background: #ffffff;
+  border: none;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0066ff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.15s ease;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none;
+}
+
+.pay-utr-toggle-btn:focus,
+.pay-utr-toggle-btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.pay-utr-toggle-btn:hover {
+  background: #f0f7ff;
+}
+
+.pay-utr-panel {
+  padding: 10px 14px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: none;
+}
+
+.pay-utr-panel.open {
+  display: block;
+}
+
+.pay-utr-input-row {
+  display: flex;
+  gap: 6px;
+}
+
+.pay-utr-input-field {
+  flex: 1;
+  height: 36px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  outline: none;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.pay-utr-input-field:focus {
+  border-color: #0066ff;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+}
+
+.pay-utr-action-btn {
+  height: 36px;
+  padding: 0 14px;
+  background: linear-gradient(135deg, #0052cc 0%, #0066ff 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+  transition: all 0.15s ease;
+}
+
+.pay-utr-action-btn:hover {
+  background: linear-gradient(135deg, #003d99 0%, #0052cc 100%);
+  box-shadow: 0 6px 16px rgba(0, 102, 255, 0.4);
+}
+
+#utrFeedbackMsg {
+  font-size: 11px;
+  margin-top: 6px;
+  display: none;
+  text-align: left;
+}
+
+/* =========================================================
+   SUCCESS / CONFIRMATION RECEIPT SCREEN & POPUP MODAL
+   High-Conversion Executive Fintech Receipt Box (PC & Phone)
+   ========================================================= */
+
+.pay-receipt-card {
+  position: relative;
+  overflow: hidden;
+  max-width: 460px;
+  margin: 30px auto;
+  padding: 36px 28px 26px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 
+    0 24px 70px -12px rgba(15, 23, 42, 0.28),
+    0 12px 28px -6px rgba(16, 185, 129, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
+  animation: receiptAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes receiptAppear {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .pay-receipt-card {
+    max-width: 100%;
+    margin: 8px auto;
+    padding: 26px 18px 22px;
+    border-radius: 20px;
+  }
+}
+
+/* Emerald Gradient Top Accent Bar */
+.pay-receipt-accent-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #10b981 0%, #059669 50%, #34d399 100%);
+}
+
+/* Dedicated Centered Brand Bar */
+.pay-receipt-brand-bar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.pay-receipt-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 99px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.pay-receipt-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.pay-receipt-brand-name {
+  font-family: 'Sora', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.pay-receipt-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #059669;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 2px 7px;
+  border-radius: 99px;
+  letter-spacing: 0.3px;
+}
+
+/* Pulsing Emerald Success Icon with Dual-Ring Ripple */
+.pay-success-icon-wrap {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 16px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pay-success-icon-ripple {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(16, 185, 129, 0.35);
+  animation: pulseRipple 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRipple {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.18); opacity: 0.3; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.pay-success-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 12px 28px rgba(16, 185, 129, 0.38),
+    0 0 0 6px rgba(16, 185, 129, 0.12);
+  animation: popSuccess 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popSuccess {
+  0% { transform: scale(0.3); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pay-receipt-title {
+  font-family: 'Sora', 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+
+.pay-receipt-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 18px;
+  font-weight: 500;
+}
+
+.pay-receipt-sub strong {
+  color: #0f172a;
+}
+
+/* Hero Settled Amount Card */
+.pay-receipt-amount-card {
+  background: linear-gradient(180deg, #f0fdf4 0%, #ecfdf5 100%);
+  border: 1.5px solid #a7f3d0;
+  border-radius: 16px;
+  padding: 12px 18px 14px;
+  margin: 0 auto 18px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+}
+
+.pay-receipt-amount-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.pay-receipt-amount-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.pay-receipt-currency {
+  font-size: 20px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.pay-receipt-val-num {
+  font-family: 'Sora', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  color: #065f46;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.pay-receipt-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #047857;
+  background: #d1fae5;
+  border: 1px solid #6ee7b7;
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-top: 6px;
+  letter-spacing: 0.4px;
+}
+
+/* Receipt Metadata Ticket / Ledger Card */
+.pay-receipt-ledger {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.pay-receipt-ledger-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+}
+
+.pay-receipt-live-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.pay-receipt-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+.pay-receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dashed #e2e8f0;
+  gap: 8px;
+}
+
+.pay-receipt-row:last-child {
+  border-bottom: none;
+}
+
+.pay-receipt-key {
+  color: #64748b;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.pay-receipt-val-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pay-receipt-val {
+  font-weight: 600;
+  color: #0f172a;
+  text-align: right;
+}
+
+.pay-receipt-val.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+.pay-val-utr {
+  color: #0066ff !important;
+  font-weight: 700;
+  background: #eff6ff;
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid #bfdbfe;
+}
+
+.pay-copy-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.pay-copy-pill:hover {
+  background: #f1f5f9;
+  color: #0066ff;
+  border-color: #0066ff;
+}
+
+.pay-val-merchant {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pay-verified-check {
+  color: #059669;
+  display: inline-flex;
+}
+
+.pay-val-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #0f172a;
+}
+
+/* Action Buttons (PC & Mobile Balanced) */
+.pay-receipt-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .pay-receipt-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+.pay-receipt-btn {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.pay-receipt-btn-save {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  flex: 1;
+}
+
+.pay-receipt-btn-save:hover {
+  background: #f8fafc;
+  border-color: #0066ff;
+  color: #0066ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 102, 255, 0.12);
+}
+
+.pay-receipt-btn-home {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  flex: 1;
+}
+
+.pay-receipt-btn-home:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.pay-receipt-btn-primary {
+  background: linear-gradient(135deg, #0052cc 0%, #0066ff 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+  width: 100%;
+}
+
+.pay-receipt-btn-primary:hover {
+  background: linear-gradient(135deg, #003d99 0%, #0052cc 100%);
+  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.4);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+/* Redirect Progress Bar */
+.pay-redirect-wrap {
+  width: 100%;
+}
+
+.pay-redirect-timer {
+  font-size: 12px;
+  color: #64748b;
+  margin: 10px 0 12px;
+}
+
+.pay-redirect-line {
+  height: 4px;
+  border-radius: 99px;
+  background: #e2e8f0;
+  overflow: hidden;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pay-redirect-line-fill {
+  height: 100%;
+  width: 100%;
+  background: #10b981;
+  animation: drainProgress 3s linear forwards;
+}
+
+@keyframes drainProgress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* =========================================================
+   REAL-TIME POPUP MODAL (When Payment Confirmed live)
+   ========================================================= */
+
+.pay-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: modalFadeIn 0.25s ease forwards;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pay-modal-card {
+  max-width: 440px !important;
+  width: 100%;
+  margin: 0 !important;
+  animation: modalPopUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalPopUp {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Print Optimization (Clean 1-Page Official Receipt) */
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  body::before,
+  .pay-receipt-actions,
+  .pay-receipt-accent-top,
+  #confettiCanvas,
+  .pay-modal-backdrop {
+    display: none !important;
+  }
+  .pay-shell {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .pay-receipt-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* Confetti canvas overlay */
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Mobile Ultra-Compact Scaling (Gives 'Small Display' feel on Standard display size) */
+@media (max-width: 480px) {
+  body.pay-page {
+    padding: 10px 8px;
+  }
+  .pay-shell {
+    padding: 12px 8px !important;
+  }
+  .pay-card {
+    padding: 16px 14px !important;
+    border-radius: 16px !important;
+  }
+  .pay-brand-header {
+    margin-bottom: 12px !important;
+  }
+  .pay-brand-name {
+    font-size: 14px !important;
+  }
+  .pay-amount-display {
+    font-size: 28px !important;
+  }
+  .pay-qr-stage-box svg {
+    width: 165px !important;
+    height: 165px !important;
+  }
+  .pay-receipt-brand-badge {
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+  }
+  .pay-receipt-amount {
+    font-size: 28px !important;
+  }
+  .pay-receipt-sub {
+    font-size: 12px !important;
+  }
+  .pay-receipt-val {
+    font-size: 11.5px !important;
+  }
+  .pay-receipt-row {
+    padding: 7px 0 !important;
+  }
+}
+
+
